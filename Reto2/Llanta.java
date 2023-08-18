@@ -12,8 +12,6 @@ public class Llanta {
     /*public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;*/
 
-    String fileName = "Retos/Reto1/gancho.txt";
-
     public static void main(String [] args) {
         SwingUtilities.invokeLater(Llanta::run);
     }   
