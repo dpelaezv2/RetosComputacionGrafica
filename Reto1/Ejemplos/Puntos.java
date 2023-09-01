@@ -4,7 +4,7 @@
  * @author Helmuth Trefftz
  * @version Septiembre 2016
  */
-package Retos.Reto1.Ejemplos;
+package Reto1.Ejemplos;
 import java.awt.Color;
 import java.awt.Graphics;
 //import java.awt.Graphics2D;

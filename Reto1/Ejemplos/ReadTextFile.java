@@ -1,4 +1,4 @@
-package Retos.Reto1.Ejemplos;
+package Reto1.Ejemplos;
 
 import java.util.Scanner;
 import java.io.File;
