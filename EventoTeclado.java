@@ -79,6 +79,4 @@ public class EventoTeclado extends JPanel
       // Mostrar el frame
       frame.setVisible(true);
   }
-    
-    
 }

@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 public class Draw extends JPanel {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
+    
     String fileName = "Reto1/gancho.txt";
 
     public static void main(String [] args) {

@@ -38,7 +38,6 @@ public class Draw extends JPanel{
         super.paintComponent(g);
     
         g.setColor(Color.blue);
-    
         drawAxis(g);
     
         g.setColor(Color.black);
@@ -55,6 +54,7 @@ public class Draw extends JPanel{
         Matrix3x3 transformationMatrix = new Matrix3x3(transformationMatrixData);
     
         g.setColor(Color.red);
+        
         Edge[] edges = readFile(fileName);
         for (int i = 0; i < edges.length; i++) {
             Point3 transformedP1 = Matrix3x3.times(transformationMatrix, new Point3(edges[i].p1.x, edges[i].p1.y, 1));
