@@ -1,4 +1,4 @@
-package Reto1;
+package Reto4;
 
 import java.util.Scanner;
 import java.io.File;
@@ -6,12 +6,17 @@ import java.io.FileNotFoundException;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
+
+import Math.Matrix3x3;
+import Math.Point3;
+
 import javax.swing.JFrame;
 
-public class Draw extends JPanel {
+public class Draw extends JPanel{
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
-    String fileName = "Reto1/gancho.txt";
+
+    String fileName = "Reto1/casita.txt";
 
     public static void main(String [] args) {
         // Crear un nuevo Frame
@@ -31,15 +36,31 @@ public class Draw extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+    
         g.setColor(Color.blue);
-        
+    
         drawAxis(g);
-
+    
         g.setColor(Color.black);
+        Edge[] originalEdges = readFile(fileName);
+        for (int i = 0; i < originalEdges.length; i++) {
+            myDrawLine(g, originalEdges[i].p1.x, originalEdges[i].p1.y, originalEdges[i].p2.x, originalEdges[i].p2.y);
+        }
+    
+        double[][] transformationMatrixData = {
+            {1, 0, 100},
+            {0, 1, 50},
+            {0, 0, 1}
+        };
+        Matrix3x3 transformationMatrix = new Matrix3x3(transformationMatrixData);
+    
+        g.setColor(Color.red);
         Edge[] edges = readFile(fileName);
         for (int i = 0; i < edges.length; i++) {
-            myDrawLine(g, edges[i].p1.x, edges[i].p1.y, edges[i].p2.x, edges[i].p2.y);
+            Point3 transformedP1 = Matrix3x3.times(transformationMatrix, new Point3(edges[i].p1.x, edges[i].p1.y, 1));
+            Point3 transformedP2 = Matrix3x3.times(transformationMatrix, new Point3(edges[i].p2.x, edges[i].p2.y, 1));
+    
+            myDrawLine(g, (int) transformedP1.x, (int) transformedP1.y, (int) transformedP2.x, (int) transformedP2.y);
         }
     }
 
@@ -102,5 +123,5 @@ class Edge {
     public Edge (Point p1, Point p2) {
         this.p1 = p1;
         this.p2 = p2;
-    }
+    } 
 }

@@ -1,4 +1,4 @@
-package Retos.Reto2;
+package Reto2;
 
 import java.awt.Color;
 import java.awt.Graphics;

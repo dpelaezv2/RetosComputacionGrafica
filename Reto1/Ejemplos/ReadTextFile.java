@@ -1,4 +1,4 @@
-package Retos.Reto1.Ejemplos;
+package Reto1.Ejemplos;
 
 import java.util.Scanner;
 import java.io.File;
@@ -27,6 +27,6 @@ public class ReadTextFile {
     }
 
     public static void main(String [] args) {
-        readFile("Retos/Reto1/Ejemplos/archivo.txt");
+        readFile("Reto1/Ejemplos/archivo.txt");
     }
 }
