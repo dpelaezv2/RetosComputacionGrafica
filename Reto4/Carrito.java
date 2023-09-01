@@ -24,7 +24,7 @@ public class Carrito extends JPanel implements KeyListener {
 
     public static void main(String[] args) {
         // Crear un nuevo Frame
-        JFrame frame = new JFrame("Casita");
+        JFrame frame = new JFrame("Carrito");
         // Al cerrar el frame, termina la ejecución de este programa
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Agregar un JPanel que se llama Points (esta clase) 
