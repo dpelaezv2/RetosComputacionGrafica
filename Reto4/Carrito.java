@@ -23,6 +23,8 @@ public class Carrito extends JPanel implements KeyListener {
     double angle = 90;
 
     public static void main(String[] args) {
+        edges = readFile(fileName);
+        
         // Crear un nuevo Frame
         JFrame frame = new JFrame("Carrito");
         // Al cerrar el frame, termina la ejecución de este programa
@@ -35,8 +37,6 @@ public class Carrito extends JPanel implements KeyListener {
         frame.setLocationRelativeTo(null);
         // Mostrar el frame
         frame.setVisible(true); 
-
-        edges = readFile(fileName);
     }
 
     public Carrito() {

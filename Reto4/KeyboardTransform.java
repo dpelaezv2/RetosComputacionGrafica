@@ -22,6 +22,8 @@ public class KeyboardTransform extends JPanel implements KeyListener {
     double yPos = 0;
 
     public static void main(String[] args) {
+        edges = readFile(fileName);
+        
         // Crear un nuevo Frame
         JFrame frame = new JFrame("Casita");
         // Al cerrar el frame, termina la ejecución de este programa
@@ -33,9 +35,7 @@ public class KeyboardTransform extends JPanel implements KeyListener {
         // Poner el frame en el centro de la pantalla
         frame.setLocationRelativeTo(null);
         // Mostrar el frame
-        frame.setVisible(true); 
-
-        edges = readFile(fileName);
+        frame.setVisible(true);   
     }
 
     public KeyboardTransform() {
