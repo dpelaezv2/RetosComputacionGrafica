@@ -15,21 +15,22 @@ public class KeyboardTransform extends JPanel implements KeyListener {
     
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 1000;
-    public static Edge[] edges;
+    public static Edge1[] Edge1s;
     public static String fileName = "Reto4/casita.txt";
 
     double xPos = 0;
     double yPos = 0;
 
     public static void main(String[] args) {
-        edges = readFile(fileName);
+        Edge1s = readFile(fileName);
         
         // Crear un nuevo Frame
         JFrame frame = new JFrame("Casita");
         // Al cerrar el frame, termina la ejecución de este programa
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Agregar un JPanel que se llama Points (esta clase) 
-        frame.add(new KeyboardTransform());
+        // Agregar un JPanel que se llama Points (esta clase)
+        KeyboardTransform clase = new KeyboardTransform(); 
+        frame.add(clase);
         // Asignarle tamaño
         frame.setSize(WIDTH, HEIGHT);
         // Poner el frame en el centro de la pantalla
@@ -55,8 +56,8 @@ public class KeyboardTransform extends JPanel implements KeyListener {
         drawAxis(g);
         g.setColor(Color.black);
         
-        for (int i = 0; i < edges.length; i++) {
-            myDrawLine(g, (int)edges[i].p1.x, (int)edges[i].p1.y, (int)edges[i].p2.x, (int)edges[i].p2.y);
+        for (int i = 0; i < Edge1s.length; i++) {
+            myDrawLine(g, (int)Edge1s[i].p1.x, (int)Edge1s[i].p1.y, (int)Edge1s[i].p2.x, (int)Edge1s[i].p2.y);
         }
     }
 
@@ -76,7 +77,7 @@ public class KeyboardTransform extends JPanel implements KeyListener {
     }
 
     public static void Transform(String type, double param1, double param2) {
-        Edge[] newEdge = edges;
+        Edge1[] newEdge1 = Edge1s;
         
         Matrix3x3 transform;
 
@@ -98,11 +99,11 @@ public class KeyboardTransform extends JPanel implements KeyListener {
                                             0, 0, 1);
         }
 
-        for (int i = 0; i < edges.length; i++) {
-            newEdge[i].p1 = Matrix3x3.times(transform, edges[i].p1);
-            newEdge[i].p2 = Matrix3x3.times(transform, edges[i].p2);
+        for (int i = 0; i < Edge1s.length; i++) {
+            newEdge1[i].p1 = Matrix3x3.times(transform, Edge1s[i].p1);
+            newEdge1[i].p2 = Matrix3x3.times(transform, Edge1s[i].p2);
         }
-        edges = newEdge;
+        Edge1s = newEdge1;
     }
 
     @Override
@@ -151,7 +152,7 @@ public class KeyboardTransform extends JPanel implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {}
     
-    public static Edge[] readFile(String fileName) {
+    public static Edge1[] readFile(String fileName) {
         try {
             Scanner scanner = new Scanner(new File(fileName));
             int numPoints = scanner.nextInt();
@@ -163,19 +164,28 @@ public class KeyboardTransform extends JPanel implements KeyListener {
                 points[i] = new Point3(x, y, w); 
                 System.out.println("Point " + i + ": (" + x + ", " + y + ")");
             }
-            int numEdges = scanner.nextInt();
-            Edge[] edges = new Edge[numEdges];
-            for(int i = 0; i < numEdges; i++ ) {
+            int numEdge1s = scanner.nextInt();
+            Edge1[] Edge1s = new Edge1[numEdge1s];
+            for(int i = 0; i < numEdge1s; i++ ) {
                 int indice1 = scanner.nextInt();
                 int indice2 = scanner.nextInt();
-                edges[i] = new Edge(points[indice1], points[indice2]);
+                Edge1s[i] = new Edge1(points[indice1], points[indice2]);
                 System.out.println("Desde: " + indice1 + " hasta: " + indice2);
             }
             scanner.close();
-            return edges;
+            return Edge1s;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
         }
+    }
+}
+
+class Edge1 {
+    Point3 p1, p2;
+
+    public Edge1 (Point3 p1, Point3 p2) {
+        this.p1 = p1;
+        this.p2 = p2;
     }
 }
