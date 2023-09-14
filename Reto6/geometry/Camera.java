@@ -25,10 +25,10 @@ public class Camera {
     public UVN4x4 createUVN() {
         from = new Vector4(r * Math.cos(phi) * Math.sin(theta), r * Math.sin(phi), r * Math.cos(phi) * Math.cos(theta));
         UVN4x4 uvn = new UVN4x4(from, lookAt, up);
-        System.out.println("[" + uvn.matrix[0][0] + ", " + uvn.matrix[0][1] + ", " + uvn.matrix[0][2] + ", " + uvn.matrix[0][3] + ", \n" +
-                            uvn.matrix[1][0] + ", " + uvn.matrix[1][1] + ", " + uvn.matrix[1][2] + ", " + uvn.matrix[1][3] + ", \n" + 
-                            uvn.matrix[2][0] + ", " + uvn.matrix[2][1] + ", " + uvn.matrix[2][2] + ", " + uvn.matrix[2][3] + ", \n" + 
-                            uvn.matrix[3][0] + ", " + uvn.matrix[3][1] + ", " + uvn.matrix[3][2] + ", " + uvn.matrix[3][3] + " ]");
+        //System.out.println("[" + uvn.matrix[0][0] + ", " + uvn.matrix[0][1] + ", " + uvn.matrix[0][2] + ", " + uvn.matrix[0][3] + ", \n" +
+        //                    uvn.matrix[1][0] + ", " + uvn.matrix[1][1] + ", " + uvn.matrix[1][2] + ", " + uvn.matrix[1][3] + ", \n" + 
+        //                    uvn.matrix[2][0] + ", " + uvn.matrix[2][1] + ", " + uvn.matrix[2][2] + ", " + uvn.matrix[2][3] + ", \n" + 
+        //                    uvn.matrix[3][0] + ", " + uvn.matrix[3][1] + ", " + uvn.matrix[3][2] + ", " + uvn.matrix[3][3] + " ]");
         return uvn;
     }
 }
