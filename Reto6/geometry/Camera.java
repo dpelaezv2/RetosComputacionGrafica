@@ -19,7 +19,6 @@ public class Camera {
         theta = 0 * Math.PI / 180;
         phi = 0 * Math.PI / 180;
         up = new Vector4(0, 1, 0);
-        lookAt = new Vector4(0, 0, 0); 
     }
 
     public UVN4x4 createUVN() {

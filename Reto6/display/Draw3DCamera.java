@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Draw3D extends JPanel implements KeyListener {
+public class Draw3DCamera extends JPanel implements KeyListener {
 
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
@@ -25,7 +25,7 @@ public class Draw3D extends JPanel implements KeyListener {
 
     PolygonObject po;
 
-    public Draw3D() {
+    public Draw3DCamera() {
         setFocusable(true);
         requestFocusInWindow();
         addKeyListener(this);
@@ -148,7 +148,7 @@ public class Draw3D extends JPanel implements KeyListener {
         // Al cerrar el frame, termina la ejecución de este programa
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Agregar un JPanel que se llama Main (esta clase)
-        Draw3D main = new Draw3D();
+        Draw3DCamera main = new Draw3DCamera();
         // Create a PolygonObject
         main.po = new PolygonObject();
         // Reading takes a long time. Read the file before adding the

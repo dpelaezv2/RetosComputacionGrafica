@@ -11,13 +11,13 @@ import Math.Vector4;
 import Math.UVN4x4;
 
 import java.io.File;
-import display.Draw3D;
+import display.Draw3DCamera;
 
 public class PolygonObject {
     ArrayList<Vector4> vertices;
     public ArrayList<Vector4> transformedVertices; // vertices after transformation
     public ArrayList<Edge> edges;
-    Draw3D canvas;
+    Draw3DCamera canvas;
     public ObjectTransformation ot;
     public Camera camera;
 
@@ -29,7 +29,7 @@ public class PolygonObject {
         camera = new Camera();     
     }
 
-    public void setCanvas(Draw3D canvas) {
+    public void setCanvas(Draw3DCamera canvas) {
         this.canvas = canvas;
     }
 
@@ -66,6 +66,9 @@ public class PolygonObject {
             camera.y = in.nextDouble();
             camera.z = in.nextDouble();
             camera.r = Math.sqrt((camera.x * camera.x) + (camera.y * camera.y) + (camera.z * camera.z));
+            camera.theta = Math.atan(camera.x/camera.z);
+            camera.phi = Math.atan(camera.y/camera.z);
+            camera.lookAt = new Vector4(ot.centerX, ot.centerY, ot.centerZ);
         } catch (Exception e) {
             System.out.println("Error reading file");
         }
