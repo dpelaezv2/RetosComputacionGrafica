@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Draw3DCamera extends JPanel implements KeyListener {
+public class Draw3DCamera1 extends JPanel implements KeyListener {
 
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
@@ -25,7 +25,7 @@ public class Draw3DCamera extends JPanel implements KeyListener {
 
     PolygonObject1 po;
 
-    public Draw3DCamera() {
+    public Draw3DCamera1() {
         setFocusable(true);
         requestFocusInWindow();
         addKeyListener(this);

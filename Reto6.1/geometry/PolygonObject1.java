@@ -11,9 +11,10 @@ import Math.Vector4;
 import Math.UVN4x4;
 
 import java.io.File;
+
 import display.Draw3DCamera;
 
-public class PolygonObject {
+public class PolygonObject1 {
     ArrayList<Vector4> vertices;
     public ArrayList<Vector4> transformedVertices; // vertices after transformation
     public ArrayList<Edge> edges;
@@ -21,7 +22,7 @@ public class PolygonObject {
     public ObjectTransformation ot;
     public Camera camera;
 
-    public PolygonObject() {
+    public PolygonObject1() {
         vertices = new ArrayList<Vector4>();
         transformedVertices = new ArrayList<Vector4>();
         edges = new ArrayList<Edge>();
@@ -29,8 +30,8 @@ public class PolygonObject {
         camera = new Camera();     
     }
 
-    public void setCanvas(Draw3DCamera canvas) {
-        this.canvas = canvas;
+    public void setCanvas(Draw3DCamera main) {
+        this.canvas = main;
     }
 
     public void readObject(String filename) {
